@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleta de Cores - CafeAromaSabores</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #3E2723 0%, #5D4037 50%, #A1887F 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .color-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .color-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .color-sample {
+            height: 120px;
+            width: 100%;
+        }
+
+        .color-info {
+            padding: 20px;
+        }
+
+        .color-info h3 {
+            color: #3E2723;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .color-info p {
+            color: #5D4037;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .hex-code {
+            background: #F5F1F0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #3E2723;
+            text-align: center;
+        }
+
+        .components {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .components h2 {
+            color: #3E2723;
+            margin-bottom: 30px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .component-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .button-group {
+            text-align: center;
+        }
+
+        .button-group h4 {
+            color: #3E2723;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #5D4037 0%, #3E2723 100%);
+            box-shadow: 0 4px 10px rgba(62, 39, 35, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(62, 39, 35, 0.25);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #A1887F 0%, #8D7B75 100%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-example {
+            background: #FFFFFF;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 4px solid #5D4037;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-example h5 {
+            color: #3E2723;
+            margin-bottom: 10px;
+        }
+
+        .card-example p {
+            color: #5D4037;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .badge-success {
+            background-color: #c8e6c9;
+            color: #1b5e20;
+        }
+
+        .badge-error {
+            background-color: #ffcdd2;
+            color: #b71c1c;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Paleta de Cores - CafeAromaSabores</h1>
+
+        <div class="color-grid">
+            <!-- Marrom Escuro -->
+            <div class="color-card">
+                <div class="color-sample" style="background-color: #3E2723;"></div>
+                <div class="color-info">
+                    <h3>Marrom Escuro</h3>
+                    <p>Usado em headers, títulos principais e destaques.</p>
+                    <div class="hex-code">#3E2723</div>
+                </div>
+            </div>
+
+            <!-- Marrom Médio -->
+            <div class="color-card">
+                <div class="color-sample" style="background-color: #5D4037;"></div>
+                <div class="color-info">
+                    <h3>Marrom Médio</h3>
+                    <p>Utilizado em elementos secundários e textos.</p>
+                    <div class="hex-code">#5D4037</div>
+                </div>
+            </div>
+
+            <!-- Marrom Claro -->
+            <div class="color-card">
+                <div class="color-sample" style="background-color: #A1887F;"></div>
+                <div class="color-info">
+                    <h3>Marrom Claro</h3>
+                    <p>Para bordas, elementos suaves e acentos.</p>
+                    <div class="hex-code">#A1887F</div>
+                </div>
+            </div>
+
+            <!-- Branco Puro -->
+            <div class="color-card">
+                <div class="color-sample" style="background-color: #FFFFFF; border: 2px solid #A1887F;"></div>
+                <div class="color-info">
+                    <h3>Branco Puro</h3>
+                    <p>Fundos de cards, containers e elementos principais.</p>
+                    <div class="hex-code">#FFFFFF</div>
+                </div>
+            </div>
+
+            <!-- Cinza Muito Claro -->
+            <div class="color-card">
+                <div class="color-sample" style="background-color: #F5F1F0; border: 2px solid #A1887F;"></div>
+                <div class="color-info">
+                    <h3>Cinza Muito Claro</h3>
+                    <p>Background geral da página e inputs.</p>
+                    <div class="hex-code">#F5F1F0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Componentes em Ação -->
+        <div class="components">
+            <h2>📦 Componentes em Ação</h2>
+
+            <div class="component-showcase">
+                <!-- Botões -->
+                <div class="button-group">
+                    <h4>Botões</h4>
+                    <button class="btn btn-primary">Botão Primário</button>
+                    <br>
+                    <button class="btn btn-secondary">Botão Secundário</button>
+                </div>
+
+                <!-- Card -->
+                <div>
+                    <h4 style="color: #3E2723; margin-bottom: 15px; font-size: 14px;">Card Exemplo</h4>
+                    <div class="card-example">
+                        <h5>📦 Produto Premium</h5>
+                        <p>Descrição do produto com estilo profissional e cores bem definidas.</p>
+                    </div>
+                </div>
+
+                <!-- Badges -->
+                <div>
+                    <h4 style="color: #3E2723; margin-bottom: 15px; font-size: 14px;">Badges</h4>
+                    <br>
+                    <span class="badge badge-success">✓ Sucesso</span>
+                    <br>
+                    <span class="badge badge-error">✕ Erro</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>💡 Paleta de cores desenvolvida para o sistema CafeAromaSabores</p>
+            <p style="font-size: 12px; margin-top: 10px; opacity: 0.8;">Design moderno, profissional e voltado para a identidade visual de uma cafeteria</p>
+        </footer>
+    </div>
+</body>
+</html>
+

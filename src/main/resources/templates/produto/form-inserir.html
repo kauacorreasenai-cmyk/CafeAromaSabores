@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto - CafeAromaESabor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F5F1F0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3E2723 0%, #5D4037 100%);
+            color: #FFFFFF;
+            padding: 25px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        .form-container {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            max-width: 700px;
+            margin: 0 auto;
+            border-top: 5px solid #5D4037;
+        }
+
+        .form-container h2 {
+            color: #3E2723;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #3E2723;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #A1887F;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s;
+            background-color: #F5F1F0;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3E2723;
+            background-color: #FFFFFF;
+            box-shadow: 0 0 8px rgba(62, 39, 35, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-submit,
+        .btn-cancel {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #5D4037 0%, #3E2723 100%);
+            color: #FFFFFF;
+            box-shadow: 0 4px 10px rgba(62, 39, 35, 0.15);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(62, 39, 35, 0.25);
+        }
+
+        .btn-cancel {
+            background: linear-gradient(135deg, #A1887F 0%, #8D7B75 100%);
+            color: #FFFFFF;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-cancel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .error-message {
+            background-color: #ffcdd2;
+            color: #b71c1c;
+            padding: 14px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #b71c1c;
+        }
+
+        .success-message {
+            background-color: #c8e6c9;
+            color: #1b5e20;
+            padding: 14px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1b5e20;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #3E2723 0%, #5D4037 100%);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>☕ CafeAromaESabor</h1>
+            <nav>
+                <a href="/home">Home</a>
+                <a href="/produto">Produtos</a>
+                <a href="/estoque">Estoque</a>
+                <a href="/logout">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <h2>➕ Novo Produto</h2>
+
+                <!-- Mensagem de Sucesso -->
+                <div th:if="${sucesso}" class="success-message">
+                    <p th:text="${sucesso}"></p>
+                </div>
+
+                <!-- Mensagem de Erro -->
+                <div th:if="${erro}" class="error-message">
+                    <p th:text="${erro}"></p>
+                </div>
+
+                <form method="POST" action="/produto">
+                    <div class="form-group">
+                        <label for="nome">Nome do Produto:</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Ex: Café Premium Arábica">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Descrição:</label>
+                        <textarea id="descricao" name="descricao" placeholder="Digite a descrição do produto..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lote">Número do Lote:</label>
+                            <input type="text" id="lote" name="lote" required placeholder="Ex: LOTE-001">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dataValidade">Data de Validade:</label>
+                            <input type="date" id="dataValidade" name="dataValidade" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quantidadeAtual">Quantidade Atual:</label>
+                            <input type="number" id="quantidadeAtual" name="quantidadeAtual" required min="0" placeholder="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estoqueMinimo">Estoque Mínimo:</label>
+                            <input type="number" id="estoqueMinimo" name="estoqueMinimo" required min="1" placeholder="20">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">💾 Salvar Produto</button>
+                        <a href="/produto" class="btn-cancel" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">❌ Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CafeAromaESabor - Sistema de Gestão de Estoque | Desenvolvido com ☕ por SENAI</p>
+    </footer>
+</body>
+</html>
+

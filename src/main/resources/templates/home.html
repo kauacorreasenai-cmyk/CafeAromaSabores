@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - CafeAromaESabor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F5F1F0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #3E2723 0%, #5D4037 100%);
+            color: #FFFFFF;
+            padding: 25px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        main {
+            padding: 50px 0;
+        }
+
+        .welcome-section {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 50px;
+            border-left: 5px solid #5D4037;
+        }
+
+        .welcome-section h2 {
+            color: #3E2723;
+            margin-bottom: 15px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .welcome-section p {
+            color: #5D4037;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #FFFFFF;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid #5D4037;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(62, 39, 35, 0.15);
+        }
+
+        .card h3 {
+            color: #3E2723;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .card-value {
+            font-size: 48px;
+            font-weight: bold;
+            color: #A1887F;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            display: inline-block;
+            background: linear-gradient(135deg, #5D4037 0%, #3E2723 100%);
+            color: #FFFFFF;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(62, 39, 35, 0.15);
+        }
+
+        .card a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(62, 39, 35, 0.25);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #3E2723 0%, #5D4037 100%);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>☕ CafeAromaESabor - Dashboard</h1>
+            <nav>
+                <a href="/home">Home</a>
+                <a href="/produto">Produtos</a>
+                <a href="/estoque">Estoque</a>
+                <a href="/logout">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="welcome-section">
+                <h2>Bem-vindo ao CafeAromaESabor! ☕</h2>
+                <p>
+                    Sistema de gestão de estoque para café. Aqui você pode gerenciar produtos,
+                    acompanhar movimentações de estoque e manter o controle do seu almoxarifado.
+                </p>
+            </div>
+
+            <div class="dashboard-cards">
+                <!-- Card Total de Produtos -->
+                <div class="card">
+                    <h3>📦 Total de Produtos</h3>
+                    <div class="card-value" th:text="${totalProdutos != null ? totalProdutos : 0}">0</div>
+                    <a href="/produto">Ver Produtos</a>
+                </div>
+
+                <!-- Card Produtos Críticos -->
+                <div class="card">
+                    <h3>⚠️ Estoque Crítico</h3>
+                    <div class="card-value" th:text="${productosCriticos != null ? productosCriticos : 0}">0</div>
+                    <a href="/estoque">Gerenciar Estoque</a>
+                </div>
+
+                <!-- Card Novas Movimentações -->
+                <div class="card">
+                    <h3>📋 Movimentações Recentes</h3>
+                    <div class="card-value" th:text="${movimentacoesRecentes != null ? movimentacoesRecentes : 0}">0</div>
+                    <a href="/estoque">Ver Histórico</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CafeAromaESabor - Sistema de Gestão de Estoque | Desenvolvido com ☕ por SENAI</p>
+    </footer>
+</body>
+</html>
+

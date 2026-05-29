@@ -1,0 +1,167 @@
+/*
+ * 🎨 GUIA DE CORES - CafeAromaSabores
+ * Paleta de Cores Profissional para Cafeteria
+ * Data: 21 de Maio de 2026
+ */
+
+/* ========================================
+   CORES PRINCIPAIS
+   ======================================== */
+
+/* Marrom Escuro - Headers, Títulos, Destaques */
+--cor-marrom-escuro: #3E2723;
+--cor-marrom-escuro-rgb: rgb(62, 39, 35);
+
+/* Marrom Médio - Bordas, Elementos Secundários */
+--cor-marrom-medio: #5D4037;
+--cor-marrom-medio-rgb: rgb(93, 64, 55);
+
+/* Marrom Claro - Acentos, Bordas Suaves */
+--cor-marrom-claro: #A1887F;
+--cor-marrom-claro-rgb: rgb(161, 136, 127);
+
+/* Branco Puro - Fundos, Containers */
+--cor-branco: #FFFFFF;
+
+/* Cinza Muito Claro - Background, Inputs */
+--cor-cinza-claro: #F5F1F0;
+
+
+/* ========================================
+   GRADIENTES
+   ======================================== */
+
+/* Gradiente para Headers e Footers */
+--gradiente-marrom-header: linear-gradient(135deg, #3E2723 0%, #5D4037 100%);
+
+/* Gradiente para Botões Primários */
+--gradiente-botao-primario: linear-gradient(135deg, #5D4037 0%, #3E2723 100%);
+
+/* Gradiente para Botões Secundários */
+--gradiente-botao-secundario: linear-gradient(135deg, #A1887F 0%, #8D7B75 100%);
+
+
+/* ========================================
+   SOMBRAS (SHADOWS)
+   ======================================== */
+
+/* Sombra Suave para Cards */
+--sombra-leve: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+/* Sombra Média para Containers */
+--sombra-media: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+/* Sombra Profunda para Destaque */
+--sombra-profunda: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+/* Sombra para Botões */
+--sombra-botao: 0 4px 10px rgba(62, 39, 35, 0.15);
+
+
+/* ========================================
+   CORES DE STATUS
+   ======================================== */
+
+/* Sucesso / Entrada */
+--cor-sucesso-bg: #c8e6c9;
+--cor-sucesso-texto: #1b5e20;
+
+/* Erro / Saída */
+--cor-erro-bg: #ffcdd2;
+--cor-erro-texto: #b71c1c;
+
+/* Aviso */
+--cor-aviso-bg: #fff9c4;
+--cor-aviso-texto: #f57f17;
+
+/* Informação */
+--cor-info-bg: #bbdefb;
+--cor-info-texto: #0d47a1;
+
+
+/* ========================================
+   ESPACAMENTO
+   ======================================== */
+
+--padding-card: 35px 40px;
+--padding-formulario: 50px;
+--padding-header: 25px 0;
+--gap-grid: 30px;
+
+
+/* ========================================
+   RAIOS DE BORDA
+   ======================================== */
+
+--radius-botao: 8px;
+--radius-card: 12px;
+--radius-input: 8px;
+
+
+/* ========================================
+   TRANSIÇÕES
+   ======================================== */
+
+--transicao-padrao: all 0.3s;
+--transicao-rapida: 0.2s;
+
+
+/* ========================================
+   EXEMPLO DE USO
+   ======================================== */
+
+/*
+HEADER:
+  background: var(--gradiente-marrom-header);
+  color: var(--cor-branco);
+
+CARD:
+  background: var(--cor-branco);
+  border-top: 4px solid var(--cor-marrom-medio);
+  box-shadow: var(--sombra-media);
+  padding: var(--padding-card);
+  border-radius: var(--radius-card);
+
+BOTÃO PRIMÁRIO:
+  background: var(--gradiente-botao-primario);
+  color: var(--cor-branco);
+  padding: 12px 28px;
+  border-radius: var(--radius-botao);
+  box-shadow: var(--sombra-botao);
+  transition: var(--transicao-padrao);
+
+BOTÃO HOVER:
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(62, 39, 35, 0.25);
+
+INPUT:
+  border: 2px solid var(--cor-marrom-claro);
+  background-color: var(--cor-cinza-claro);
+  padding: 12px 15px;
+  border-radius: var(--radius-input);
+
+INPUT FOCUS:
+  outline: none;
+  border-color: var(--cor-marrom-escuro);
+  background-color: var(--cor-branco);
+  box-shadow: 0 0 8px rgba(62, 39, 35, 0.2);
+*/
+
+
+/* ========================================
+   DICAS DE DESIGN
+   ======================================== */
+
+/*
+1. Use var(--cor-marrom-escuro) para títulos principais (h1, h2)
+2. Use var(--cor-marrom-medio) para textos secundários
+3. Adicione bordas superiores marrom em cards importantes
+4. Sempre use sombras em containers para profundidade
+5. Use gradientes em elementos que precisam de destaque
+6. Mantenha o font-family como 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+7. Hover effects devem incluir translateY(-2px)
+8. Transições devem ser suaves (0.3s)
+9. Inputs devem ter fundo claro (F5F1F0) e borda marrom claro
+10. Mensagens de status devem usar cores predefinidas
+*/
+
